@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'corsheaders',
     'core',
     'catalog',
     'checkout',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'core.middleware.JWTAuthenticationMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -167,3 +169,5 @@ AUTHENTICATION_BACKENDS = (
     'core.backends.CustomAuthenticationBackend',  # Add this backend
     'django.contrib.auth.backends.ModelBackend',  # Default backend (optional)
 )
+
+CORS_ALLOW_ALL_ORIGINS = True # For development purposes

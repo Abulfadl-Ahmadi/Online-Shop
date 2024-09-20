@@ -1,6 +1,7 @@
 from .models import User
 from django.contrib.auth.backends import ModelBackend
 
+
 class CustomAuthenticationBackend(ModelBackend):
     """
     Custom authentication backend that distinguishes between incorrect username and incorrect password.

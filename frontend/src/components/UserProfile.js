@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const UserProfile = () => {
   const [user, setUser] = useState({});
+  // const apiUrl = process.env.REACT_APP_BACKEND_URL;
+  const apiUrl = "http://localhost:8000";
 
   useEffect(() => {
     const fetchUserProfile = async () => {
-      const token = localStorage.getItem('access_token');
-      
+      const token = localStorage.getItem("access_token");
+
       try {
-        const response = await axios.get('http://localhost:8000/api/user/', {
+        const response = await axios.get(`${apiUrl}/api/user/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         setUser(response.data);
       } catch (error) {
-        console.error('Error fetching the user profile:', error);
+        console.error("Error fetching the user profile:", error);
+        window.location.href = "/login/";
       }
     };
 

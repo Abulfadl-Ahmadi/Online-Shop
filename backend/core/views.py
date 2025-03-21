@@ -143,7 +143,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
                     httponly=True,
                     secure=True,    # Use HTTPS in production
                     samesite='Lax', # For CSRF protection
-                    max_age=60 * 5  # Access token expiry (e.g., 5 minutes)
+                    max_age=60 * 60  # Access token expiry (e.g., 60 minutes)
                 )
                 
                 response.set_cookie(
